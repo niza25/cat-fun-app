@@ -1,15 +1,15 @@
 import request from 'superagent';
-export const GET_IMAGE = 'GET_IMAGE';
+export const GET_FACTS = 'GET_FACTS';
 
-export function getRandomImage(){
+export function getFacts(){
   return function (dispatch) {
-    request('https://api.thecatapi.com/v1/images/search')
+    request('https://api.thecatapi.com/v1/breeds')
       .then(response => {
-        return response.body[0]['url']
+        return response.body
       })
       .then(response => {
         dispatch({
-          type: GET_IMAGE,
+          type: GET_FACTS,
           payload: response
         })
       })
