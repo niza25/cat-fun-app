@@ -1,24 +1,26 @@
 import React, { Component } from 'react'
 import ImgFactContainer from './ImgFactContainer';
+import StartDisplay from './StartDisplay'
 
 
 export default class StartPage extends React.Component {
 
+  state = {
+    startGame: false
+  }
+
   onClickHandler = () => {
-    return (
-      <ImgFactContainer />
-    )
+    const doesStart = this.state.startGame;
+    this.setState({ startGame: !doesStart })
   }
 
   render() {
 
     return (
       <div>
-        <div className="startPageHeader">
-          <h1>Wanna have some Cat Fun Fuct?</h1>
-          <p>here will be a pic of a cat</p>
-          <button onClick={this.onClickHandler}>Let's start</button>
-        </div>
+          {
+          !this.state.startGame ? <StartDisplay clickHandler = {this.onClickHandler} /> : <ImgFactContainer />
+          }
       </div>
 
     )
