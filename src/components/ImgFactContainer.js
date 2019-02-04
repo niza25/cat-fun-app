@@ -16,21 +16,16 @@ class ImgFactContainer extends React.Component {
     this.props.getRandomImage()
   }
 
-  displayRandomFact = () => {
-    const randomNr = Math.floor(Math.random() * (this.props.state.facts.length));
-    console.log(randomNr, 'my random nr')
-    //this.props.state.facts.map(objFact =>)
-    alert('click')
-  }
- 
   render() {
     if (!this.props.state.image) return 'Wait for it...'
     return (
       <div>
-      <ImgDisplay imageUrl = {this.props.state.image}
+      <ImgDisplay
+      imageUrl = {this.props.state.image}
       onclick = {this.displayRandomCat}
       />
-      <FactDisplay text = {this.props.state.facts}
+      <FactDisplay
+      text = {this.props.state.facts}
       />
       </div>
     )
